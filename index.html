@@ -225,7 +225,7 @@ footer a:hover{color:#60a5fa;}
         </div>
         <div class="form-group" style="display:flex;align-items:flex-start;gap:0.6rem;margin-bottom:1rem;">
           <input type="checkbox" id="termsCheck" name="terms" required style="width:auto;margin-top:3px;flex-shrink:0;accent-color:#2563eb;">
-          <label for="termsCheck" style="font-size:0.8rem;color:#94a3b8;text-transform:none;letter-spacing:0;font-weight:400;cursor:pointer;">I agree to NovaCold's <a href="terms.html" target="_blank" rel="noopener" style="color:#60a5fa;text-decoration:underline;">Terms &amp; Privacy Policy</a>. I understand the setup fee is non-refundable and that NovaCold delivers outreach services, not guaranteed sales.</label>
+          <label for="termsCheck" style="font-size:0.8rem;color:#94a3b8;text-transform:none;letter-spacing:0;font-weight:400;cursor:pointer;">I agree to NovaCold's <button type="button" onclick="openTermsModal()" style="background:none;border:none;padding:0;color:#60a5fa;text-decoration:underline;cursor:pointer;font-size:0.8rem;font-family:inherit;">Terms &amp; Privacy Policy</button>. I understand the setup fee is non-refundable and that NovaCold delivers outreach services, not guaranteed sales.</label>
         </div>
         <button type="submit" class="submit-btn">Submit — we'll be in touch within 1 business day</button>
         <p class="form-note">By submitting you agree to be contacted by NovaCold regarding your campaign.</p>
@@ -236,6 +236,14 @@ footer a:hover{color:#60a5fa;}
       <h3>Thank you! We'll be in touch soon.</h3>
       <p>We've received your details and will get back to you within 1 business day at hello@novacold-mail.com</p>
     </div>
+  </div>
+</div>
+
+<!-- TERMS MODAL -->
+<div id="termsModalOverlay" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:2000;justify-content:center;align-items:center;padding:1rem;">
+  <div style="background:#1e293b;border-radius:16px;padding:2.5rem;max-width:680px;width:100%;max-height:85vh;overflow-y:auto;position:relative;border:1px solid #334155;scrollbar-width:thin;scrollbar-color:#334155 #1e293b;">
+    <button onclick="closeTermsModal()" style="position:absolute;top:1rem;right:1rem;background:#0f172a;border:1px solid #334155;font-size:0.875rem;cursor:pointer;color:#94a3b8;line-height:1;padding:0.4rem 0.9rem;border-radius:6px;font-family:inherit;">✕ Close</button>
+    <div id="termsModalContent"></div>
   </div>
 </div>
 
@@ -562,6 +570,52 @@ function closeModal() {
 
 document.getElementById('modalOverlay').addEventListener('click', function(e) {
   if (e.target === this) closeModal();
+});
+
+function openTermsModal() {
+  var overlay = document.getElementById('termsModalOverlay');
+  var content = document.getElementById('termsModalContent');
+  if (!content.innerHTML) {
+    content.innerHTML = `
+      <h2 style="font-size:1.5rem;font-weight:800;color:#f8fafc;margin-bottom:0.5rem;padding-right:2rem;">Terms &amp; Privacy Policy</h2>
+      <p style="font-size:0.75rem;color:#64748b;margin-bottom:1.5rem;">Last updated: May 2026</p>
+      <div style="background:#0f172a;border-left:3px solid #2563eb;padding:1rem 1.5rem;border-radius:0 8px 8px 0;margin-bottom:1.5rem;"><p style="color:#cbd5e1;font-size:0.9rem;margin:0;">By submitting the enquiry form and engaging NovaCold's services, you agree to the terms outlined below.</p></div>
+      <h3 style="font-size:1rem;font-weight:700;color:#f8fafc;margin:1.5rem 0 0.5rem;">1. Services</h3>
+      <p style="color:#94a3b8;font-size:0.875rem;line-height:1.8;margin-bottom:0.75rem;">NovaCold provides B2B cold email outreach services including lead sourcing, email copywriting, campaign management, and weekly performance reporting. We deliver measurable outreach activity — emails sent, open rates, and reply rates. We do not guarantee specific sales, revenue, or meetings.</p>
+      <h3 style="font-size:1rem;font-weight:700;color:#f8fafc;margin:1.5rem 0 0.5rem;">2. Payment Terms</h3>
+      <ul style="color:#94a3b8;font-size:0.875rem;line-height:1.8;margin-left:1.25rem;margin-bottom:0.75rem;">
+        <li>All payments must be made in full before any work begins.</li>
+        <li>The setup fee is <strong style="color:#f8fafc;">non-refundable</strong> under any circumstances.</li>
+        <li>The Trial plan covers one month with no further commitment.</li>
+        <li>Standard and Premium plans require a minimum commitment of 3 months.</li>
+        <li>Monthly fees are due at the start of each billing period.</li>
+      </ul>
+      <h3 style="font-size:1rem;font-weight:700;color:#f8fafc;margin:1.5rem 0 0.5rem;">3. No Guarantees</h3>
+      <p style="color:#94a3b8;font-size:0.875rem;line-height:1.8;margin-bottom:0.75rem;">Cold email results vary by industry, offer, and market. NovaCold makes no guarantees regarding leads, meetings, or sales generated. We commit to delivering the volume of emails and reporting stated in your plan.</p>
+      <h3 style="font-size:1rem;font-weight:700;color:#f8fafc;margin:1.5rem 0 0.5rem;">4. Client Responsibilities</h3>
+      <ul style="color:#94a3b8;font-size:0.875rem;line-height:1.8;margin-left:1.25rem;margin-bottom:0.75rem;">
+        <li>Provide accurate information about your business and ideal client profile.</li>
+        <li>Review and approve all email copy before campaigns go live.</li>
+        <li>Ensure your product or service complies with applicable laws in your target market.</li>
+      </ul>
+      <h3 style="font-size:1rem;font-weight:700;color:#f8fafc;margin:1.5rem 0 0.5rem;">5. Cancellation</h3>
+      <p style="color:#94a3b8;font-size:0.875rem;line-height:1.8;margin-bottom:0.75rem;">Trial clients may choose not to continue after the first month. Standard and Premium clients may cancel after their 3-month minimum by providing 14 days written notice to hello@novacold-mail.com. No refunds for partially completed months.</p>
+      <h3 style="font-size:1rem;font-weight:700;color:#f8fafc;margin:1.5rem 0 0.5rem;">6. Privacy &amp; Data</h3>
+      <p style="color:#94a3b8;font-size:0.875rem;line-height:1.8;margin-bottom:0.75rem;">NovaCold collects personal information submitted through our enquiry form solely to deliver our services. We do not sell your data. You may request access, correction, or deletion at any time by emailing hello@novacold-mail.com.</p>
+      <h3 style="font-size:1rem;font-weight:700;color:#f8fafc;margin:1.5rem 0 0.5rem;">7. Limitation of Liability</h3>
+      <p style="color:#94a3b8;font-size:0.875rem;line-height:1.8;margin-bottom:0.75rem;">NovaCold's total liability shall not exceed fees paid in the 30 days prior to the claim. We are not liable for indirect, consequential, or loss of business damages.</p>
+      <button onclick="closeTermsModal()" style="margin-top:1.5rem;width:100%;background:#2563eb;color:#fff;border:none;padding:0.8rem;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:inherit;">Close &amp; Return to Form</button>
+    `;
+  }
+  overlay.style.display = 'flex';
+}
+
+function closeTermsModal() {
+  document.getElementById('termsModalOverlay').style.display = 'none';
+}
+
+document.getElementById('termsModalOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeTermsModal();
 });
 
 async function submitForm(e) {
