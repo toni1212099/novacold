@@ -414,6 +414,45 @@ footer a:hover{color:#60a5fa;}
         <p>Positive replies land directly in your inbox. You handle the conversations. We keep the pipeline full.</p>
       </div>
     </div>
+
+    <!-- More Info Button -->
+    <div style="text-align:center;margin-top:2.5rem;">
+      <button onclick="toggleHowItWorksInfo()" id="moreInfoBtn" style="background:transparent;border:1px solid #2563eb;color:#60a5fa;padding:0.65rem 1.8rem;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;transition:all 0.2s;letter-spacing:0.01em;" onmouseover="this.style.background='#1e3a8a';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#60a5fa'">
+        More info ↓
+      </button>
+    </div>
+
+    <!-- Expandable Info Panel -->
+    <div id="howItWorksInfo" style="display:none;margin-top:2rem;background:#1e293b;border-radius:12px;padding:2rem 2.5rem;border:1px solid #1e3a8a;">
+      <h3 style="color:#f8fafc;font-size:1.15rem;font-weight:700;margin-bottom:1.5rem;letter-spacing:-0.01em;">How the process works — step by step</h3>
+
+      <div style="margin-bottom:1.5rem;">
+        <p style="color:#60a5fa;font-weight:700;margin-bottom:0.4rem;">Step 1 — We find your ideal customers</p>
+        <p style="color:#94a3b8;font-size:0.95rem;line-height:1.8;">We build a verified list of contacts matched exactly to your target market — the right job titles, company sizes, and industries. Every contact has a verified email address before we touch them.</p>
+      </div>
+
+      <div style="margin-bottom:1.5rem;">
+        <p style="color:#60a5fa;font-weight:700;margin-bottom:0.4rem;">Step 2 — We write your email sequence</p>
+        <p style="color:#94a3b8;font-size:0.95rem;line-height:1.8;">Every campaign runs on a 3-email sequence sent over 8 days:</p>
+        <ul style="color:#94a3b8;font-size:0.95rem;line-height:1.8;margin:0.6rem 0 0 1.4rem;">
+          <li style="margin-bottom:0.4rem;"><strong style="color:#cbd5e1;">Email 1 (Day 1)</strong> — Short intro, personalised with their name and company. No hard pitch — just a relevant question to spark interest.</li>
+          <li style="margin-bottom:0.4rem;"><strong style="color:#cbd5e1;">Email 2 (Day 4)</strong> — Follow-up on the same thread. We address their likely pain point and explain how we can help.</li>
+          <li style="margin-bottom:0.4rem;"><strong style="color:#cbd5e1;">Email 3 (Day 8)</strong> — Final email. Polite, no pressure. We leave the door open in case the timing was not right.</li>
+        </ul>
+        <p style="color:#94a3b8;font-size:0.95rem;line-height:1.8;margin-top:0.6rem;">You review and approve all email copy before anything goes live. Nothing is sent without your sign-off.</p>
+      </div>
+
+      <div style="margin-bottom:1.5rem;">
+        <p style="color:#60a5fa;font-weight:700;margin-bottom:0.4rem;">Step 3 — We launch and manage the campaign</p>
+        <p style="color:#94a3b8;font-size:0.95rem;line-height:1.8;">Emails go out daily on a controlled schedule to protect deliverability. We monitor open rates, reply rates, and inbox health every week and adjust as needed to keep performance high.</p>
+      </div>
+
+      <div>
+        <p style="color:#60a5fa;font-weight:700;margin-bottom:0.4rem;">Step 4 — Replies land in your inbox</p>
+        <p style="color:#94a3b8;font-size:0.95rem;line-height:1.8;">When a prospect replies positively, the conversation lands directly in your inbox. You take it from there — no calls needed, no middleman. We keep sending while you keep closing.</p>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -591,6 +630,18 @@ document.querySelectorAll('.info-btn').forEach(btn => {
 document.addEventListener('click', function() {
   document.querySelectorAll('.info-btn').forEach(b => b.classList.remove('active'));
 });
+
+function toggleHowItWorksInfo() {
+  var panel = document.getElementById('howItWorksInfo');
+  var btn = document.getElementById('moreInfoBtn');
+  if (panel.style.display === 'none') {
+    panel.style.display = 'block';
+    btn.textContent = 'Less info ↑';
+  } else {
+    panel.style.display = 'none';
+    btn.textContent = 'More info ↓';
+  }
+}
 
 function toggleMobileNav() {
   const nav = document.querySelector('nav');
