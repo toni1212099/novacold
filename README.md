@@ -18,6 +18,5 @@ Any value left as `""` hides its buttons or text. Commit the change and GitHub P
 
 - Fill in at least `demoPhoneNumber` or `bookingLink` (otherwise the page has no buttons).
 - Replace the placeholder text in `privacy.html` and `terms.html`.
-- Paste the PayPal button code into `subscribe-starter.html` and `subscribe-pro.html` (replace the amber placeholder box between the `PayPal ... button` comments).
 
 `assets/css/styles.css` is pre-built Tailwind CSS. Don't edit it by hand.

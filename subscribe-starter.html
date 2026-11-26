@@ -40,8 +40,33 @@
       </ul>
 
       <div class="paypal-slot">
-        <!-- ===== PayPal Starter button: paste the PayPal code here ===== -->
-        <div class="rounded-xl border border-amber-300/30 bg-amber-300/10 px-4 py-3 text-sm text-amber-100" data-paypal-placeholder>PayPal Starter button not added yet. Replace this box with the PayPal Starter button code.</div>
+        <!-- ===== PayPal Starter button (from PayPal button factory) ===== -->
+        <div id="paypal-button-container-P-53H91552A0754082TNMEGOIY"></div>
+        <p class="mt-4 rounded-xl border border-cyan-400/25 px-4 py-3 text-sm text-slate-200" data-paypal-success hidden></p>
+        <script src="https://www.paypal.com/sdk/js?client-id=BAA_ZZj4f2oq4nsWLjn3IBnhz9sOscVaDQ5HRoQDLa9Wa4qxV_x0HBrH7Az-KXY9b_gawAgyliwXotDlD4&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+        <script>
+          paypal.Buttons({
+              style: {
+                  shape: 'pill',
+                  color: 'blue',
+                  layout: 'vertical',
+                  label: 'subscribe'
+              },
+              createSubscription: function(data, actions) {
+                return actions.subscription.create({
+                  /* Creates the subscription */
+                  plan_id: 'P-53H91552A0754082TNMEGOIY'
+                });
+              },
+              onApprove: function(data, actions) {
+                // Success message for the subscriber (replaces PayPal's default alert).
+                var box = document.querySelector('[data-paypal-success]');
+                box.textContent = 'Thank you! Your subscription is active (ID: ' + data.subscriptionID + '). We\'ll contact you within 24 hours to set up your AI receptionist.';
+                box.hidden = false;
+                document.getElementById('paypal-button-container-P-53H91552A0754082TNMEGOIY').hidden = true;
+              }
+          }).render('#paypal-button-container-P-53H91552A0754082TNMEGOIY'); // Renders the PayPal button
+        </script>
         <!-- ===== end PayPal Starter button ===== -->
       </div>
 
