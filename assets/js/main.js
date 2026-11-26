@@ -57,12 +57,26 @@
   var offerLead = $('[data-offer-lead]');
   if (offerTitle) {
     if (trialDays) {
-      offerTitle.textContent = 'Try it free for ' + trialDays + (trialDays === 1 ? ' day' : ' days') + '. No contract.';
+      offerTitle.textContent = 'Try Starter free for ' + trialDays + (trialDays === 1 ? ' day' : ' days') + '. No contract.';
     } else {
       offerTitle.textContent = 'No contract. Cancel anytime.';
       if (offerLead) offerLead.textContent = 'Let it answer your real calls. See the jobs it books. If it doesn\'t earn its keep, walk away.';
     }
   }
+
+  if (trialDays) {
+    $$('[data-trial-note]').forEach(function (el) { el.textContent = 'Free ' + trialDays + '-day trial on Starter'; });
+    $$('[data-trial-badge]').forEach(function (el) { el.textContent = 'Free ' + trialDays + '-day trial'; });
+  }
+
+  // Pricing buttons (homepage). An empty value keeps the default subscribe page.
+  [['starter', clean(cfg.pricingStarterLink)], ['pro', clean(cfg.pricingProLink)]].forEach(function (p) {
+    if (!p[1]) return;
+    $$('[data-pricing="' + p[0] + '"]').forEach(function (a) {
+      a.href = p[1];
+      if (/^https?:\/\//i.test(p[1])) { a.target = '_blank'; a.rel = 'noopener'; }
+    });
+  });
 
   $$('[data-currency]').forEach(function (el) { el.textContent = currency; });
   $$('[data-year]').forEach(function (el) { el.textContent = String(new Date().getFullYear()); });

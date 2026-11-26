@@ -27,4 +27,10 @@ window.SITE_CONFIG = {
   // Length of the free trial, in days. Set to "" or 0 to hide all
   // free-trial wording.
   trialDays: 7,
+
+  // Where the "Start free trial" (Starter) and "Get Pro" buttons in the
+  // homepage Pricing section go. Can be a page on this site or a full
+  // https:// link (e.g. a Tally form).
+  pricingStarterLink: "/subscribe-starter.html",
+  pricingProLink: "/subscribe-pro.html",
 };
