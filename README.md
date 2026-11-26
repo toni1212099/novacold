@@ -10,6 +10,7 @@ Open `site.config.js` and fill in:
 - `bookingLink`: your booking page, e.g. `"https://cal.com/yourname"`
 - `email`: shown in the footer
 - `currencySymbol`, `trialDays`: calculator symbol and free-trial length
+- `pricingStarterLink`, `pricingProLink`: where the homepage Pricing buttons go (default: `/subscribe-starter.html` and `/subscribe-pro.html`)
 
 Any value left as `""` hides its buttons or text. Commit the change and GitHub Pages republishes in about a minute.
 
