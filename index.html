@@ -37,7 +37,28 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 
   <link rel="stylesheet" href="assets/css/styles.css">
-  <link rel="stylesheet" href="assets/css/pricing.css">
+  <style>
+    /* Pricing cards + subscribe pages (kept inline so the page never depends on an extra CSS file). */
+    .pricing-grid { display: grid; gap: 1.25rem; max-width: 56rem; margin-left: auto; margin-right: auto; }
+    @media (min-width: 768px) { .pricing-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    .pricing-card { display: flex; flex-direction: column; }
+    .pricing-card-featured { border-color: rgb(34 211 238 / 0.35); }
+    .pricing-price { display: flex; align-items: baseline; gap: 0.4rem; }
+    .pricing-btn { width: 100%; justify-content: center; margin-top: auto; }
+    .pricing-card ul { margin-bottom: 2rem; }
+    .subscribe-card { max-width: 36rem; margin-left: auto; margin-right: auto; }
+    .paypal-slot { margin-top: 2rem; }
+    .paypal-slot [id^="paypal-button-container"] {
+      /* Light scheme makes PayPal's frames transparent, so the rounded panel shows through cleanly. */
+      color-scheme: light;
+      background: #f8fafc;
+      border-radius: 1.25rem;
+      padding: 1.25rem 1.25rem 0.75rem;
+      min-height: 7rem;
+      box-shadow: 0 0 0 1px rgb(34 211 238 / 0.25), 0 12px 40px -12px rgb(34 211 238 / 0.35);
+    }
+    .paypal-slot [id^="paypal-button-container"] iframe { color-scheme: light; }
+  </style>
   <script src="site.config.js" defer></script>
   <script src="assets/js/main.js" defer></script>
 
