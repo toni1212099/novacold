@@ -41,7 +41,7 @@
 
   <link rel="stylesheet" href="assets/css/styles.css">
   <style>
-    /* Pricing cards + subscribe pages (kept inline so the page never depends on an extra CSS file). */
+    /* Pricing cards (kept inline so the page never depends on an extra CSS file). */
     .pricing-grid { display: grid; gap: 1.25rem; max-width: 26rem; margin-left: auto; margin-right: auto; }
     @media (min-width: 720px) { .pricing-grid { max-width: 56rem; grid-template-columns: repeat(2, minmax(0, 1fr)); } }
     .pricing-card { display: flex; flex-direction: column; }
@@ -49,7 +49,6 @@
     .pricing-price { display: flex; align-items: baseline; gap: 0.4rem; }
     .pricing-card .pricing-btn { width: 100%; justify-content: center; margin-top: auto; }
     .pricing-card ul { margin-bottom: 2rem; }
-    .subscribe-card { max-width: 36rem; margin-left: auto; margin-right: auto; }
     .paypal-slot { margin-top: 2rem; }
     .paypal-slot [id^="paypal-button-container"] {
       /* Light scheme makes PayPal's frames transparent, so the rounded panel shows through cleanly. */
@@ -423,7 +422,7 @@
               <li class="flex gap-3"><svg class="mt-0.5 h-5 w-5 shrink-0 text-cyan-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4L8 12.6l7.3-7.3a1 1 0 0 1 1.4 0z" clip-rule="evenodd"/></svg><span class="text-slate-200">Answers every call, 24/7</span></li>
               <li class="flex gap-3"><svg class="mt-0.5 h-5 w-5 shrink-0 text-cyan-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4L8 12.6l7.3-7.3a1 1 0 0 1 1.4 0z" clip-rule="evenodd"/></svg><span class="text-slate-200">No contract, cancel anytime</span></li>
             </ul>
-            <a href="/subscribe-starter.html" class="btn btn-primary pricing-btn mt-8" data-pricing="starter">Start free trial</a>
+            <a href="/checkout.html?plan=starter" class="btn btn-primary pricing-btn mt-8" data-pricing="starter">Start free trial</a>
           </article>
           <article class="glass reveal pricing-card pricing-card-featured p-6 sm:p-8" data-delay="2">
             <h3 class="text-2xl">Pro</h3>
@@ -435,7 +434,7 @@
               <li class="flex gap-3"><svg class="mt-0.5 h-5 w-5 shrink-0 text-cyan-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4L8 12.6l7.3-7.3a1 1 0 0 1 1.4 0z" clip-rule="evenodd"/></svg><span class="text-slate-200">Extra minutes $0.30/min</span></li>
               <li class="flex gap-3"><svg class="mt-0.5 h-5 w-5 shrink-0 text-cyan-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4L8 12.6l7.3-7.3a1 1 0 0 1 1.4 0z" clip-rule="evenodd"/></svg><span class="text-slate-200">No contract, cancel anytime</span></li>
             </ul>
-            <a href="/subscribe-pro.html" class="btn btn-primary pricing-btn mt-8" data-pricing="pro">Get Pro</a>
+            <a href="/checkout.html?plan=pro" class="btn btn-primary pricing-btn mt-8" data-pricing="pro">Get Pro</a>
           </article>
         </div>
       </div>

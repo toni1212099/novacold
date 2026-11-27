@@ -31,6 +31,6 @@ window.SITE_CONFIG = {
   // Where the "Start free trial" (Starter) and "Get Pro" buttons in the
   // homepage Pricing section go. Can be a page on this site or a full
   // https:// link (e.g. a Tally form).
-  pricingStarterLink: "/subscribe-starter.html",
-  pricingProLink: "/subscribe-pro.html",
+  pricingStarterLink: "/checkout.html?plan=starter",
+  pricingProLink: "/checkout.html?plan=pro",
 };

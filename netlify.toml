@@ -1,0 +1,26 @@
+# Netlify settings for novacold.agency (static site, no build step)
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+# Old PayPal pages now go to the checkout
+[[redirects]]
+  from = "/subscribe-starter.html"
+  to = "/checkout.html?plan=starter"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/subscribe-pro.html"
+  to = "/checkout.html?plan=pro"
+  status = 301
+  force = true
+
+[[headers]]
+  for = "/checkout.html"
+  [headers.values]
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Content-Type-Options = "nosniff"
