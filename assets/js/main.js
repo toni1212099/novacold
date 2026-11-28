@@ -116,6 +116,7 @@
   /* ---------------- Calculator ---------------- */
   var calc = $('[data-calc]');
   if (calc) {
+    calc.addEventListener('submit', function (e) { e.preventDefault(); });
     var outMonth = $('[data-out-month]');
     var outYear = $('[data-out-year]');
     var outJobs = $('[data-out-jobs]');

@@ -19,8 +19,43 @@
   status = 301
   force = true
 
+# Don't publish repo/config files
+[[redirects]]
+  from = "/netlify/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/netlify.toml"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/README.md"
+  to = "/404.html"
+  status = 404
+  force = true
+
+# Security headers for every page.
+# CSP: only our own scripts plus PayPal's SDK/buttons; Google Fonts for the font.
+# 'unsafe-inline' is allowed for styles only (pages use inline <style> blocks); scripts stay strict.
+# Note: PayPal's SDK tries to add one inline layout-helper script to its placeholder buttons; CSP blocks it.
+# That is expected and harmless (the real buttons run inside PayPal's own iframe).
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; script-src 'self' https://*.paypal.com https://*.paypalobjects.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.paypal.com https://*.paypalobjects.com; connect-src 'self' https://*.paypal.com https://*.paypalobjects.com; frame-src https://*.paypal.com https://*.paypalobjects.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests"
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(self \"https://www.paypal.com\")"
+    Cross-Origin-Opener-Policy = "same-origin-allow-popups"
+
+# Checkout answers must never be cached by browsers or proxies
 [[headers]]
   for = "/checkout.html"
   [headers.values]
-    Referrer-Policy = "strict-origin-when-cross-origin"
-    X-Content-Type-Options = "nosniff"
+    Cache-Control = "no-store"
